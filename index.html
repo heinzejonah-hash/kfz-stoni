@@ -968,7 +968,7 @@
       .nav-links a::after { display: none; }
       .l-bento { grid-template-columns: 1fr 1fr; }
       .l-card.wide { grid-column: span 2; }
-      .cta-band { flex-direction: column; text-align: center; gap: 1.8rem; padding: 5rem var(--pad); }
+      .cta-band { flex-direction: column; align-items: center; text-align: center; gap: 1.8rem; padding: 5rem var(--pad); }
       .kontakt-grid { grid-template-columns: 1fr; gap: 3rem; max-width: 100%; }
       .form-2 { grid-template-columns: 1fr 1fr; }
     }
@@ -998,8 +998,10 @@
       .rv-cols { height: 480px; }
 
       /* CTA band */
-      .cta-band { padding: 4rem var(--pad); gap: 1.5rem; }
+      .cta-band { padding: 4rem var(--pad); gap: 1.5rem; align-items: center; }
       .cta-band h2 { font-size: clamp(1.5rem, 6vw, 2rem); }
+      /* Hero scroll indicator stays centered */
+      .hero-scroll { left: 50%; transform: translateX(-50%); }
 
       /* Kontakt */
       .kontakt-section { padding: 4.5rem var(--pad); }
