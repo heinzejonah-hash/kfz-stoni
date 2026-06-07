@@ -91,6 +91,16 @@
     .footer { margin-top: 2rem; padding: 1.2rem 2.8rem; background: #1A1A2E; display: flex; justify-content: space-between; align-items: center; }
     .footer p { font-size: .65rem; color: rgba(255,255,255,.35); }
 
+    /* AGB */
+    .agb-section { border-top: 2px solid #f0f0f0; margin-top: 0; }
+    .agb-header { background: #f5f5f5; padding: 1rem 2.8rem; border-bottom: 1px solid #eee; }
+    .agb-title { font-size: .72rem; font-weight: 800; color: #1A1A2E; letter-spacing: -.01em; }
+    .agb-sub { font-size: .58rem; color: #aaa; margin-top: 2px; }
+    .agb-body { padding: 1.4rem 2.8rem 2rem; columns: 2; column-gap: 2.2rem; }
+    .agb-para { break-inside: avoid; padding-bottom: .9rem; margin-bottom: .9rem; border-bottom: 1px solid #f0f0f0; }
+    .agb-nr { font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #D97228; margin-bottom: .35rem; }
+    .agb-para p { font-size: .7rem; color: #555; line-height: 1.7; }
+
     @media print { body { background: #fff; } .page { max-width: 100%; } }
   </style>
 </head>
@@ -203,10 +213,6 @@
       <li>Gemäß § 19 UStG wird keine Umsatzsteuer ausgewiesen (Kleinunternehmerregelung).</li>
     </ul>
 
-    <div class="hinweis">
-      <strong>Hinweis:</strong> Mit Unterzeichnung akzeptiert der Auftraggeber die beigefügten Allgemeinen Geschäftsbedingungen sowie die Datenschutzerklärung von Jonah Heinze.
-    </div>
-
     <div class="sign-section">
       <div class="sec-title">Auftragserteilung</div>
       <div class="sign-grid">
@@ -221,6 +227,67 @@
       </div>
     </div>
 
+  </div>
+
+  <div class="footer">
+    <p>Jonah Heinze · Westring 25g · 45711 Datteln</p>
+    <p>Gem. § 19 UStG keine MwSt. · Stand: Juni 2026</p>
+  </div>
+
+  <!-- AGB -->
+  <div class="agb-section">
+    <div class="agb-header">
+      <div class="agb-title">Allgemeine Geschäftsbedingungen</div>
+      <div class="agb-sub">Jonah Heinze · Stand: Juni 2026 · Gültig ab 01.06.2026</div>
+    </div>
+    <div class="agb-body">
+
+      <div class="agb-para">
+        <div class="agb-nr">§ 1 Geltungsbereich</div>
+        <p>Diese AGB gelten für alle Verträge zwischen Jonah Heinze (Auftragnehmer) und dem Auftraggeber über KI-Sprachagenten- und digitale Dienstleistungen. Abweichende Bedingungen gelten nur bei ausdrücklicher schriftlicher Zustimmung.</p>
+      </div>
+
+      <div class="agb-para">
+        <div class="agb-nr">§ 2 Leistungsumfang</div>
+        <p>Der genaue Leistungsumfang ergibt sich aus dem jeweiligen Vertrag. Änderungen bedürfen einer schriftlichen Vereinbarung und können zu einer Anpassung der Vergütung führen.</p>
+      </div>
+
+      <div class="agb-para">
+        <div class="agb-nr">§ 3 Vergütung &amp; Zahlung</div>
+        <p>Setup-Gebühren werden nach Abnahme und Go-Live fällig, zahlbar innerhalb von 14 Tagen. Monatliche Gebühren werden im Voraus zum Monatsersten gestellt. Minutenpreise werden monatlich nachträglich nach tatsächlichem Verbrauch abgerechnet. Bei Zahlungsverzug ist der Auftragnehmer berechtigt, Verzugszinsen zu berechnen und die Leistung zu unterbrechen.</p>
+      </div>
+
+      <div class="agb-para">
+        <div class="agb-nr">§ 4 Mitwirkungspflichten</div>
+        <p>Der Auftraggeber stellt alle notwendigen Unterlagen, Zugangsdaten und Informationen rechtzeitig bereit. Verzögerungen durch unterlassene Mitwirkung gehen nicht zu Lasten des Auftragnehmers.</p>
+      </div>
+
+      <div class="agb-para">
+        <div class="agb-nr">§ 5 Urheberrecht &amp; Nutzungsrechte</div>
+        <p>Alle erstellten Konfigurationen, Dialoge und Werke verbleiben bis zur vollständigen Bezahlung im Eigentum des Auftragnehmers. Nach Bezahlung erhält der Auftraggeber ein einfaches, nicht übertragbares Nutzungsrecht für die vereinbarten Zwecke.</p>
+      </div>
+
+      <div class="agb-para">
+        <div class="agb-nr">§ 6 Haftung &amp; KI-Besonderheiten</div>
+        <p>Der Auftragnehmer haftet nur bei Vorsatz oder grober Fahrlässigkeit. Für KI-Sprachagenten wird keine Garantie für ununterbrochene Verfügbarkeit übernommen. KI-Agenten können in seltenen Fällen fehlerhafte Antworten geben — eine regelmäßige Qualitätskontrolle der Transkripte wird empfohlen. Der Auftraggeber ist für die rechtliche Zulässigkeit seiner Inhalte verantwortlich.</p>
+      </div>
+
+      <div class="agb-para">
+        <div class="agb-nr">§ 7 Laufzeit &amp; Kündigung</div>
+        <p>Verträge laufen für die vereinbarte Mindestlaufzeit. Danach verlängern sie sich automatisch um einen Monat, sofern nicht mit 30 Tagen Frist zum Laufzeitende schriftlich gekündigt wird (E-Mail genügt). Eine außerordentliche Kündigung ist bei Zahlungsverzug von mehr als 30 Tagen möglich.</p>
+      </div>
+
+      <div class="agb-para">
+        <div class="agb-nr">§ 8 Datenschutz &amp; KI-Telefonie</div>
+        <p>Telefongespräche werden automatisch aufgezeichnet und transkribiert. Anrufer sind zu Gesprächsbeginn über die KI-gestützte Verarbeitung zu informieren — diese Pflicht obliegt dem Auftraggeber als Betreiber. Daten werden gem. DSGVO verarbeitet und nach spätestens 12 Monaten gelöscht. Auf Wunsch wird ein Auftragsverarbeitungsvertrag (AVV) abgeschlossen.</p>
+      </div>
+
+      <div class="agb-para" style="border-bottom:none; padding-bottom:0;">
+        <div class="agb-nr">§ 9 Schlussbestimmungen</div>
+        <p>Es gilt deutsches Recht. Gerichtsstand ist Datteln, NRW. Sollten einzelne Bestimmungen unwirksam sein, berührt dies die Wirksamkeit der übrigen nicht. Änderungen werden schriftlich mitgeteilt und gelten als genehmigt, sofern nicht innerhalb von 4 Wochen schriftlich widersprochen wird.</p>
+      </div>
+
+    </div>
   </div>
 
   <div class="footer">
