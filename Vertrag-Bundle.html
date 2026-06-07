@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vertrag Voice Agenda – KFZ Stoni</title>
+  <title>Vertrag Bundle – KFZ Stoni</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,24 +47,50 @@
     .sec-title { font-size: .6rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #D97228; margin-bottom: .8rem; }
 
     /* Leistungsbox */
-    .leistungs-box { border: 1.5px solid #1A1A2E; border-radius: 6px; overflow: hidden; margin-bottom: 1.5rem; }
-    .leistungs-header { background: #1A1A2E; padding: .9rem 1.5rem; }
+    .leistungs-box { border: 1.5px solid #1A1A2E; border-radius: 6px; overflow: hidden; margin-bottom: 1rem; }
+    .leistungs-header {
+      background: #1A1A2E;
+      padding: .9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     .leistungs-header .lname { font-size: .88rem; font-weight: 700; color: #fff; }
+    .leistungs-header .badge { background: #D97228; color: #fff; font-size: .52rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; padding: .22rem .65rem; border-radius: 99px; }
     .leistungs-liste {
-      padding: 1.2rem 1.5rem;
+      padding: 1.1rem 1.5rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: .4rem .5rem;
+      gap: .38rem .5rem;
     }
     .leistungs-liste .item { font-size: .76rem; color: #444; display: flex; align-items: flex-start; gap: .5rem; line-height: 1.45; }
     .leistungs-liste .item::before { content: '✓'; color: #D97228; font-weight: 700; font-size: .7rem; flex-shrink: 0; margin-top: 1px; }
 
-    /* Preistabelle */
-    table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: .78rem; }
-    th { background: #f5f5f5; padding: .55rem .9rem; text-align: left; font-size: .65rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #555; border-bottom: 2px solid #eee; }
-    td { padding: .62rem .9rem; border-bottom: 1px solid #f0f0f0; color: #333; vertical-align: middle; line-height: 1.5; }
-    tr:last-child td { border-bottom: none; }
-    .amount { font-weight: 800; color: #1A1A2E; }
+    /* Preisboxen */
+    .preis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .preis-box {
+      border: 1.5px solid #eee;
+      border-radius: 8px;
+      padding: 1.1rem 1.2rem;
+      text-align: center;
+    }
+    .preis-box .plabel { font-size: .54rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #aaa; margin-bottom: .5rem; }
+    .preis-box .pval { font-size: 1.3rem; font-weight: 800; color: #1A1A2E; letter-spacing: -.03em; line-height: 1; }
+    .preis-box .psub { font-size: .62rem; color: #999; margin-top: .3rem; }
+    .preis-box.highlight { border-color: #1A1A2E; background: #f9f9fb; }
+    .savings-note {
+      text-align: center;
+      font-size: .7rem;
+      color: #888;
+      margin-bottom: 1.5rem;
+      margin-top: -.5rem;
+    }
+    .savings-note strong { color: #D97228; }
 
     /* Rollout */
     .rollout { margin-bottom: 1.5rem; }
@@ -79,9 +105,6 @@
     .kond-list li { font-size: .76rem; color: #555; line-height: 1.72; padding: .34rem 0; border-bottom: 1px solid #f5f5f5; list-style: none; display: flex; gap: .6rem; align-items: flex-start; }
     .kond-list li:last-child { border-bottom: none; }
     .kond-list li::before { content: '·'; color: #1A1A2E; font-weight: 900; font-size: 1rem; line-height: 1.3; flex-shrink: 0; }
-
-    .hinweis { background: #FFFBF5; border: 1px solid rgba(217,114,40,.3); border-left: 3px solid #D97228; padding: .8rem 1rem; font-size: .74rem; color: #555; line-height: 1.65; margin-bottom: 1.5rem; }
-    .hinweis strong { color: #D97228; }
 
     .sign-section { border-top: 2px solid #f0f0f0; padding-top: 1.5rem; }
     .sign-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 1.2rem; }
@@ -129,12 +152,28 @@
       </div>
       <div class="doc-meta">
         <div class="doc-type">Vertrag</div>
-        <div class="doc-nr">08.06.2026 · Nr. 2026-003</div>
+        <div class="doc-nr">08.06.2026 · Nr. 2026-004</div>
       </div>
     </div>
 
+    <!-- LEISTUNGEN -->
     <div class="sec-title">Leistungsumfang</div>
-    <div class="leistungs-box">
+    <div class="leistungs-box" style="margin-bottom:1rem;">
+      <div class="leistungs-header">
+        <div class="lname">Website — Design &amp; Entwicklung</div>
+      </div>
+      <div class="leistungs-liste">
+        <div class="item">Professionelles Webdesign (individuell)</div>
+        <div class="item">Responsive — Mobile &amp; Desktop optimiert</div>
+        <div class="item">Alle Inhalte, Texte &amp; Bilder eingebaut</div>
+        <div class="item">Kontaktformular mit Fahrzeugauswahl</div>
+        <div class="item">Google Maps &amp; Bewertungen-Sektion</div>
+        <div class="item">SEO-Grundoptimierung (Titel, Meta, Struktur)</div>
+        <div class="item">SSL-Zertifikat, Impressum &amp; Datenschutz</div>
+        <div class="item">Google Business Profil verknüpft &amp; optimiert</div>
+      </div>
+    </div>
+    <div class="leistungs-box" style="margin-bottom:1rem;">
       <div class="leistungs-header">
         <div class="lname">KI-Telefonassistent — Einrichtung &amp; Betrieb</div>
       </div>
@@ -145,74 +184,82 @@
         <div class="item">E-Mail-Benachrichtigung nach jedem Gespräch</div>
         <div class="item">24/7 Erreichbarkeit — auch nachts &amp; Wochenende</div>
         <div class="item">Individuelle Dialoge für KFZ-Anfragen</div>
-        <div class="item">Terminanfragen direkt im Gespräch aufnehmen</div>
-        <div class="item">Monatlicher Qualitäts-Check der Transkripte</div>
+      </div>
+    </div>
+    <div class="leistungs-box">
+      <div class="leistungs-header">
+        <div class="lname">Monatliche Betreuung — laufend ab Go-Live</div>
+        <div class="badge">Bundle</div>
+      </div>
+      <div class="leistungs-liste">
+        <div class="item">Hosting, Domain &amp; SSL — läuft einfach</div>
+        <div class="item">Bis zu 2 Website-Änderungen pro Monat</div>
+        <div class="item">Google Business Profil — Pflege &amp; Updates</div>
+        <div class="item">KI-Agent: Monitoring &amp; Qualitäts-Check</div>
+        <div class="item">Google-Indexierung im Blick behalten</div>
+        <div class="item">Reaktionszeit bei Problemen: 24 Stunden</div>
       </div>
     </div>
 
+    <!-- PREISE -->
     <div class="sec-title">Vergütung</div>
-    <table>
-      <thead>
-        <tr>
-          <th>Position</th>
-          <th>Beschreibung</th>
-          <th>Preis</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Setup (einmalig)</td>
-          <td>Einrichtung, Konfiguration, Testphase &amp; Go-Live</td>
-          <td class="amount">1.990 €</td>
-        </tr>
-        <tr>
-          <td>Monatliche Gebühr</td>
-          <td>Betrieb, Monitoring, Updates &amp; Qualitäts-Check</td>
-          <td class="amount">349 € / Monat</td>
-        </tr>
-        <tr>
-          <td>Minutenpreis (Agent)</td>
-          <td>Pro Gesprächsminute, monatlich nach Verbrauch</td>
-          <td class="amount">0,30 € / Min.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="preis-grid">
+      <div class="preis-box highlight">
+        <div class="plabel">Setup (einmalig)</div>
+        <div class="pval">3.500 €</div>
+        <div class="psub">nach Abnahme &amp; Go-Live</div>
+      </div>
+      <div class="preis-box highlight">
+        <div class="plabel">Pro Monat</div>
+        <div class="pval">499 €</div>
+        <div class="psub">ab Go-Live, monatl. zum 1.</div>
+      </div>
+      <div class="preis-box">
+        <div class="plabel">Pro Minute (Agent)</div>
+        <div class="pval">0,30 €</div>
+        <div class="psub">monatl. nach Verbrauch</div>
+      </div>
+    </div>
+    <p class="savings-note">Einzeln: 4.490 € Setup + 598 €/Monat — <strong>ihr spart 990 € Setup und 99 €/Monat.</strong></p>
 
+    <!-- ABLAUF -->
     <div class="sec-title">Ablauf</div>
     <div class="rollout">
       <div class="rollout-row">
         <div class="r-woche">Woche 1</div>
         <div class="r-content">
           <strong>Kickoff</strong>
-          <span>Dialoge &amp; Szenarien abstimmen, Rufnummer einrichten, Zugänge klären.</span>
+          <span>Design, Inhalte &amp; Dialoge abstimmen, Zugänge einrichten.</span>
         </div>
       </div>
       <div class="rollout-row">
         <div class="r-woche">Woche 1–2</div>
         <div class="r-content">
           <strong>Build</strong>
-          <span>Agent konfigurieren, Knowledge Base befüllen, Testcalls durchführen.</span>
+          <span>Website entwickeln, Agent konfigurieren, Knowledge Base befüllen, Testcalls.</span>
         </div>
       </div>
       <div class="rollout-row">
         <div class="r-woche">Woche 2</div>
         <div class="r-content">
           <strong>Abnahme &amp; Go-Live</strong>
-          <span>Gemeinsame Qualitätsprüfung — Rufnummer live, Setup-Gebühr erst danach fällig.</span>
+          <span>Gemeinsame Qualitätsprüfung — Website online, Rufnummer aktiv. Erst dann wird die Setup-Gebühr fällig.</span>
         </div>
       </div>
     </div>
 
+    <!-- KONDITIONEN -->
     <div class="sec-title">Konditionen</div>
     <ul class="kond-list">
-      <li>Setup-Gebühr wird erst nach Abnahme und Go-Live in Rechnung gestellt.</li>
-      <li>Monatliche Gebühr startet mit Go-Live, Abrechnung jeweils zum Monatsersten.</li>
-      <li>Minutenpreise werden monatlich nach tatsächlichem Verbrauch abgerechnet.</li>
+      <li>Setup-Gebühr (3.500 €) wird erst nach Abnahme und Go-Live in Rechnung gestellt.</li>
+      <li>Monatliche Gebühr (499 €) startet mit Go-Live, Abrechnung jeweils zum Monatsersten.</li>
+      <li>Minutenpreise für den KI-Agenten werden monatlich nach tatsächlichem Verbrauch abgerechnet.</li>
       <li>Mindestlaufzeit 12 Monate. Kündigung mit 30 Tagen Frist zum Laufzeitende, danach monatlich kündbar.</li>
-      <li>Der Auftraggeber ist verantwortlich für die datenschutzkonforme Einbindung (Hinweispflicht gegenüber Anrufern).</li>
+      <li>Der Auftraggeber ist verantwortlich für die datenschutzkonforme Einbindung des KI-Agenten (Hinweispflicht gegenüber Anrufern).</li>
       <li>Gemäß § 19 UStG wird keine Umsatzsteuer ausgewiesen (Kleinunternehmerregelung).</li>
     </ul>
 
+    <!-- UNTERSCHRIFT -->
     <div class="sign-section">
       <div class="sec-title">Auftragserteilung</div>
       <div class="sign-grid">
@@ -244,7 +291,7 @@
 
       <div class="agb-para">
         <div class="agb-nr">§ 1 Geltungsbereich</div>
-        <p>Diese AGB gelten für alle Verträge zwischen Jonah Heinze (Auftragnehmer) und dem Auftraggeber über KI-Sprachagenten- und digitale Dienstleistungen. Abweichende Bedingungen gelten nur bei ausdrücklicher schriftlicher Zustimmung.</p>
+        <p>Diese AGB gelten für alle Verträge zwischen Jonah Heinze (Auftragnehmer) und dem Auftraggeber über Webdesign-, Webentwicklungs-, KI-Sprachagenten- und digitale Dienstleistungen. Abweichende Bedingungen gelten nur bei ausdrücklicher schriftlicher Zustimmung.</p>
       </div>
 
       <div class="agb-para">
@@ -254,7 +301,7 @@
 
       <div class="agb-para">
         <div class="agb-nr">§ 3 Vergütung &amp; Zahlung</div>
-        <p>Setup-Gebühren werden nach Abnahme und Go-Live fällig, zahlbar innerhalb von 14 Tagen. Monatliche Gebühren werden im Voraus zum Monatsersten gestellt. Minutenpreise werden monatlich nachträglich nach tatsächlichem Verbrauch abgerechnet. Bei Zahlungsverzug ist der Auftragnehmer berechtigt, Verzugszinsen zu berechnen und die Leistung zu unterbrechen.</p>
+        <p>Setup-Gebühren werden nach Abnahme und Go-Live fällig, zahlbar innerhalb von 14 Tagen. Monatliche Gebühren werden im Voraus zum Monatsersten gestellt. Minutenpreise werden monatlich nachträglich abgerechnet. Bei Zahlungsverzug ist der Auftragnehmer berechtigt, Verzugszinsen zu berechnen und die Leistung zu unterbrechen.</p>
       </div>
 
       <div class="agb-para">
@@ -264,35 +311,30 @@
 
       <div class="agb-para">
         <div class="agb-nr">§ 5 Urheberrecht &amp; Nutzungsrechte</div>
-        <p>Alle erstellten Konfigurationen, Dialoge und Werke verbleiben bis zur vollständigen Bezahlung im Eigentum des Auftragnehmers. Nach Bezahlung erhält der Auftraggeber ein einfaches, nicht übertragbares Nutzungsrecht für die vereinbarten Zwecke.</p>
+        <p>Alle erstellten Werke verbleiben bis zur vollständigen Bezahlung im Eigentum des Auftragnehmers. Nach Bezahlung erhält der Auftraggeber ein einfaches, nicht übertragbares Nutzungsrecht. Der Auftragnehmer darf erbrachte Leistungen als Referenz verwenden, sofern nicht ausdrücklich widersprochen wird.</p>
       </div>
 
       <div class="agb-para">
         <div class="agb-nr">§ 6 Haftung &amp; KI-Besonderheiten</div>
-        <p>Der Auftragnehmer haftet nur bei Vorsatz oder grober Fahrlässigkeit. Für KI-Sprachagenten wird keine Garantie für ununterbrochene Verfügbarkeit übernommen. KI-Agenten können in seltenen Fällen fehlerhafte Antworten geben — eine regelmäßige Qualitätskontrolle der Transkripte wird empfohlen. Der Auftraggeber ist für die rechtliche Zulässigkeit seiner Inhalte verantwortlich.</p>
+        <p>Der Auftragnehmer haftet nur bei Vorsatz oder grober Fahrlässigkeit. Für KI-Sprachagenten wird keine Garantie für ununterbrochene Verfügbarkeit übernommen. KI-Agenten können in seltenen Fällen fehlerhafte Antworten geben — regelmäßige Qualitätskontrolle wird empfohlen. Der Auftraggeber ist für die Zulässigkeit seiner veröffentlichten Inhalte verantwortlich.</p>
       </div>
 
       <div class="agb-para">
         <div class="agb-nr">§ 7 Laufzeit &amp; Kündigung</div>
-        <p>Verträge laufen für die vereinbarte Mindestlaufzeit. Danach verlängern sie sich automatisch um einen Monat, sofern nicht mit 30 Tagen Frist zum Laufzeitende schriftlich gekündigt wird (E-Mail genügt). Eine außerordentliche Kündigung ist bei Zahlungsverzug von mehr als 30 Tagen möglich.</p>
+        <p>Verträge laufen für die vereinbarte Mindestlaufzeit. Danach verlängern sie sich automatisch um einen Monat, sofern nicht mit 30 Tagen Frist zum Laufzeitende schriftlich gekündigt wird (E-Mail genügt). Außerordentliche Kündigung bei Zahlungsverzug von mehr als 30 Tagen möglich.</p>
       </div>
 
       <div class="agb-para">
         <div class="agb-nr">§ 8 Datenschutz &amp; KI-Telefonie</div>
-        <p>Telefongespräche werden automatisch aufgezeichnet und transkribiert. Anrufer sind zu Gesprächsbeginn über die KI-gestützte Verarbeitung zu informieren — diese Pflicht obliegt dem Auftraggeber als Betreiber. Daten werden gem. DSGVO verarbeitet und nach spätestens 12 Monaten gelöscht. Auf Wunsch wird ein Auftragsverarbeitungsvertrag (AVV) abgeschlossen.</p>
+        <p>Telefongespräche werden automatisch aufgezeichnet und transkribiert. Anrufer sind zu Gesprächsbeginn über die KI-gestützte Verarbeitung zu informieren — diese Pflicht obliegt dem Auftraggeber. Daten werden gem. DSGVO verarbeitet und nach spätestens 12 Monaten gelöscht. Auf Wunsch wird ein AVV abgeschlossen.</p>
       </div>
 
       <div class="agb-para" style="border-bottom:none; padding-bottom:0;">
         <div class="agb-nr">§ 9 Schlussbestimmungen</div>
-        <p>Es gilt deutsches Recht. Gerichtsstand ist Datteln, NRW. Sollten einzelne Bestimmungen unwirksam sein, berührt dies die Wirksamkeit der übrigen nicht. Änderungen werden schriftlich mitgeteilt und gelten als genehmigt, sofern nicht innerhalb von 4 Wochen schriftlich widersprochen wird.</p>
+        <p>Es gilt deutsches Recht. Gerichtsstand ist Datteln, NRW. Sollten einzelne Bestimmungen unwirksam sein, berührt dies die Wirksamkeit der übrigen nicht. Änderungen werden schriftlich mitgeteilt und gelten als genehmigt, sofern nicht innerhalb von 4 Wochen widersprochen wird.</p>
       </div>
 
     </div>
-  </div>
-
-  <div class="footer">
-    <p>Jonah Heinze · Westring 25g · 45711 Datteln</p>
-    <p>Gem. § 19 UStG keine MwSt. · Stand: Juni 2026</p>
   </div>
 
 </div>
