@@ -425,7 +425,6 @@
     @media(max-width: 720px) {
       .umzug-grid { grid-template-columns: 1fr; }
       .umzug-divider-line { display: none; }
-      .umzug-rhs { margin-top: 2.5rem; }
     }
 
     /* ── LEISTUNGEN (PHOTO BENTO) ── */
@@ -700,17 +699,20 @@
 
     /* ── CTA BAND ── */
     .cta-band {
-      background: var(--red);
-      padding: 7rem var(--pad);
+      background: #060606;
+      border-top: 1px solid rgba(255,255,255,.05);
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      padding: 6rem var(--pad);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 2rem;
     }
     .cta-band h2 { font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 900; letter-spacing: -.04em; color: #fff; line-height: 1.1; }
+    .cta-band h2 em { font-style: normal; color: var(--red); }
     .btn-white {
-      background: #fff;
-      color: var(--red);
+      background: var(--red);
+      color: #fff;
       font-size: .84rem;
       font-weight: 800;
       padding: .9rem 2.2rem;
@@ -718,17 +720,19 @@
       text-decoration: none;
       white-space: nowrap;
       flex-shrink: 0;
-      transition: transform .2s var(--ease), box-shadow .2s;
+      transition: transform .2s var(--ease), box-shadow .2s, background .2s;
     }
-    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+    .btn-white:hover { background: var(--red2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(204,0,0,.35); }
 
     /* ── KONTAKT ── */
     .kontakt-section { background: var(--d1); padding: 9rem var(--pad); }
     .kontakt-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 5rem;
       align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
     }
     .k-phone {
       display: block;
@@ -761,55 +765,71 @@
     .k-detail-val { font-size: .83rem; color: rgba(255,255,255,.5); line-height: 1.65; }
 
     /* Contact form */
-    .contact-form { display: flex; flex-direction: column; gap: 0; }
-    .cf-group { display: flex; flex-direction: column; gap: .32rem; margin-bottom: 1.1rem; }
-    .cf-group:last-of-type { margin-bottom: 0; }
-    .cf-label {
-      font-size: .56rem;
-      font-weight: 700;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.28);
+    .cf-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 16px;
+      padding: 1.8rem 1.6rem;
     }
-    .form-2 { display: grid; grid-template-columns: 1fr 1fr; gap: .85rem; }
-    .cf-section-divider {
+    .cf-card-title {
       font-size: .54rem;
       font-weight: 700;
       letter-spacing: .2em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.15);
-      padding: 1.4rem 0 .9rem;
+      color: rgba(255,255,255,.22);
+      margin-bottom: 1.3rem;
+      padding-bottom: .9rem;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 0; }
+    .cf-group { display: flex; flex-direction: column; gap: .28rem; margin-bottom: .85rem; }
+    .cf-group:last-of-type { margin-bottom: 0; }
+    .cf-label {
+      font-size: .54rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.25);
+    }
+    .form-2 { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
+    .cf-section-divider {
+      font-size: .52rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.13);
+      padding: 1rem 0 .7rem;
       border-top: 1px solid rgba(255,255,255,.06);
-      margin-top: .4rem;
+      margin-top: .2rem;
     }
     .cf-input, .cf-ta, .cf-select {
       background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.09);
-      border-radius: 10px;
-      padding: .92rem 1.15rem;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 8px;
+      padding: .75rem .95rem;
       color: #fff;
       font-family: inherit;
-      font-size: .8rem;
+      font-size: .78rem;
       width: 100%;
       outline: none;
       transition: border-color .25s, background .25s, box-shadow .25s;
     }
-    .cf-input::placeholder, .cf-ta::placeholder { color: rgba(255,255,255,.18); }
+    .cf-input::placeholder, .cf-ta::placeholder { color: rgba(255,255,255,.16); }
     .cf-input:focus, .cf-ta:focus, .cf-select:focus {
-      border-color: rgba(204,0,0,.5);
+      border-color: rgba(204,0,0,.45);
       background: rgba(255,255,255,.07);
-      box-shadow: 0 0 0 3px rgba(204,0,0,.07);
+      box-shadow: 0 0 0 3px rgba(204,0,0,.06);
     }
-    .cf-ta { resize: none; height: 120px; }
+    .cf-ta { resize: none; height: 88px; }
     .cf-select {
       appearance: none;
       -webkit-appearance: none;
       cursor: pointer;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.3)' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: right 1rem center;
-      padding-right: 2.5rem;
-      color: rgba(255,255,255,.35);
+      background-position: right .9rem center;
+      padding-right: 2.2rem;
+      color: rgba(255,255,255,.3);
     }
     .cf-select option { background: #161616; color: #fff; }
     .cf-select.has-value { color: #fff; }
@@ -818,15 +838,16 @@
       background: var(--red);
       color: #fff;
       font-family: inherit;
-      font-size: .82rem;
+      font-size: .8rem;
       font-weight: 700;
-      padding: .9rem;
+      padding: .85rem;
       border: none;
       border-radius: 99px;
       cursor: pointer;
       transition: background .2s, transform .15s;
-      box-shadow: 0 4px 20px rgba(204,0,0,.3);
-      margin-top: .25rem;
+      box-shadow: 0 4px 16px rgba(204,0,0,.28);
+      margin-top: .4rem;
+      width: 100%;
     }
     .cf-submit:hover { background: var(--red2); transform: translateY(-1px); }
 
@@ -947,46 +968,85 @@
       .nav-links a::after { display: none; }
       .l-bento { grid-template-columns: 1fr 1fr; }
       .l-card.wide { grid-column: span 2; }
-      .cta-band { flex-direction: column; text-align: center; gap: 1.5rem; }
-      .kontakt-grid { grid-template-columns: 1fr; gap: 3.5rem; }
-      .form-2 { grid-template-columns: 1fr; }
+      .cta-band { flex-direction: column; text-align: center; gap: 1.8rem; padding: 5rem var(--pad); }
+      .kontakt-grid { grid-template-columns: 1fr; gap: 3rem; max-width: 100%; }
+      .form-2 { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 760px) {
-      .hero-center { padding: 5.5rem 2rem 3rem; }
-      .hero-logo-img { height: 160px; margin-bottom: .5rem; }
-      .hero-h1 { font-size: clamp(2.4rem, 9vw, 3.5rem); }
+      /* Hero */
+      .hero-center { padding: 5.5rem 1.8rem 3rem; }
+      .hero-logo-img { height: 150px; margin-bottom: .4rem; }
+      .hero-h1 { font-size: clamp(2.2rem, 9vw, 3.2rem); margin-bottom: 1.4rem; }
       .h1-top, .h1-bot { white-space: normal; }
-      .hero-badge { font-size: .62rem; }
-      .leistungen-section { padding: 5rem var(--pad); }
+      .hero-badge { font-size: .6rem; padding: .45rem 1rem; }
+      .hero-ctas { gap: .8rem; }
+
+      /* Leistungen */
+      .leistungen-section { padding: 4.5rem var(--pad); }
+
+      /* Ablauf — static on mobile */
       .ablauf-section { height: auto; }
-      .ablauf-sticky { position: static; grid-template-columns: 1fr; gap: 2.5rem; padding: 5rem var(--pad); }
+      .ablauf-sticky { position: static; grid-template-columns: 1fr; gap: 2.5rem; padding: 4.5rem var(--pad); }
       .abl-step { opacity: 1 !important; transform: none !important; }
       .abl-step .abl-desc { color: var(--gray) !important; }
       .abl-step .abl-title { color: var(--txt) !important; }
       .abl-dot { background: var(--red) !important; border-color: var(--red) !important; }
       .abl-fill { height: 100% !important; }
+
+      /* Reviews */
       .reviews-section { padding: 4rem 0; }
-      .rv-cols { height: 520px; }
-      .cta-band { padding: 4.5rem var(--pad); }
-      .kontakt-section { padding: 5rem var(--pad); }
-      .umzug-section { padding: 4rem var(--pad); }
+      .rv-cols { height: 480px; }
+
+      /* CTA band */
+      .cta-band { padding: 4rem var(--pad); gap: 1.5rem; }
+      .cta-band h2 { font-size: clamp(1.5rem, 6vw, 2rem); }
+
+      /* Kontakt */
+      .kontakt-section { padding: 4.5rem var(--pad); }
+      .k-phone { font-size: clamp(1.4rem, 5.5vw, 2rem); }
+      .cf-card { padding: 1.4rem 1.2rem; }
+
+      /* Umzug — kompakt */
+      .umzug-section { padding: 3rem var(--pad); }
+      .umzug-lhs p { display: none; }
+      .umzug-facts { display: none; }
+      .umzug-rhs { margin-top: 1.5rem; }
+      .umzug-lhs h3 { font-size: 1.5rem; margin-bottom: .4rem; }
+      .umzug-address { font-size: 1.1rem; margin-bottom: 1rem; }
+      .umzug-cta { padding: .65rem 1.4rem; font-size: .75rem; }
     }
     @media (max-width: 600px) {
+      /* Leistungen */
       .l-bento { grid-template-columns: 1fr; }
       .l-card.wide { grid-column: span 1; }
-      .rv-cols { height: 460px; }
+
+      /* Reviews — single column */
+      .rv-cols { height: 430px; }
       .rv-col:nth-child(2), .rv-col:nth-child(3) { display: none; }
-      .rv-col:first-child { width: 100%; max-width: 360px; margin: 0 auto; }
+      .rv-col:first-child { width: 100%; max-width: 340px; margin: 0 auto; }
+
+      /* Form — single column */
+      .form-2 { grid-template-columns: 1fr; gap: .7rem; }
+      .cf-card { padding: 1.2rem 1rem; }
+
+      /* Footer */
       .footer-main { grid-template-columns: 1fr 1fr; }
       .footer-brand { grid-column: span 2; }
-      .section-h2 { font-size: clamp(1.6rem, 7vw, 2.4rem); }
+      .section-h2 { font-size: clamp(1.5rem, 7vw, 2.2rem); }
+
+      /* Umzug — strip layout */
+      .umzug-grid { gap: 1.2rem; }
+      .umzug-eyebrow { font-size: .52rem; }
     }
     @media (max-width: 420px) {
-      .hero-center { padding: 5rem 1.4rem 2.5rem; }
-      .hero-logo-img { height: 130px; }
+      .hero-center { padding: 5rem 1.2rem 2.5rem; }
+      .hero-logo-img { height: 120px; }
+      .hero-ctas { flex-direction: column; width: 100%; }
+      .hero-ctas a { text-align: center; }
       .footer-main { grid-template-columns: 1fr; }
       .footer-brand { grid-column: span 1; }
       .nav-cta span { display: none; }
+      .cf-card { padding: 1rem .9rem; border-radius: 12px; }
     }
   </style>
 </head>
@@ -1301,8 +1361,8 @@
 
 <!-- ═══ CTA BAND ═══ -->
 <div class="cta-band sr">
-  <h2>Termin in<br>2 Minuten vereinbart.</h2>
-  <a href="tel:+4923635695760" class="btn-white">Anrufen →</a>
+  <h2>Termin in 2 Minuten<br><em>vereinbart.</em></h2>
+  <a href="tel:+4923635695760" class="btn-white">Jetzt anrufen →</a>
 </div>
 
 <!-- ═══ KONTAKT ═══ -->
@@ -1333,6 +1393,8 @@
     </div>
 
     <div class="sr-r" style="transition-delay:.1s">
+      <div class="cf-card">
+      <div class="cf-card-title">Anfrage stellen</div>
       <form class="contact-form" onsubmit="return false;" id="contactForm">
 
         <div class="form-2">
@@ -1399,6 +1461,7 @@
 
         <button type="submit" class="cf-submit">Anfrage senden →</button>
       </form>
+      </div>
     </div>
   </div>
 </section>
