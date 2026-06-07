@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vertrag Voice Agenda – KFZ Stoni</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #fff;
+      color: #111;
+      -webkit-font-smoothing: antialiased;
+      font-size: 13px;
+    }
+    .page { max-width: 794px; margin: 0 auto; }
+
+    .header {
+      background: #1A1A2E;
+      padding: 2.2rem 2.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header-left .name { font-size: 1rem; font-weight: 800; color: #fff; letter-spacing: -.01em; }
+    .header-left .sub { font-size: .62rem; color: #D97228; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; margin-top: 3px; }
+    .header-right { text-align: right; }
+    .header-right p { font-size: .72rem; color: rgba(255,255,255,.45); line-height: 1.9; }
+
+    .body { padding: 2.2rem 2.8rem; }
+
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid #f0f0f0;
+    }
+    .kunde-block p { font-size: .78rem; color: #555; line-height: 1.85; }
+    .kunde-block strong { color: #111; font-weight: 700; }
+    .doc-meta { text-align: right; }
+    .doc-meta .doc-type { font-size: 1.4rem; font-weight: 800; color: #1A1A2E; letter-spacing: -.03em; line-height: 1; }
+    .doc-meta .doc-nr { font-size: .58rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #aaa; margin-top: 4px; }
+
+    .sec-title { font-size: .6rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #D97228; margin-bottom: .8rem; }
+
+    /* Leistungsbox */
+    .leistungs-box { border: 1.5px solid #1A1A2E; border-radius: 6px; overflow: hidden; margin-bottom: 1.5rem; }
+    .leistungs-header { background: #1A1A2E; padding: .9rem 1.5rem; }
+    .leistungs-header .lname { font-size: .88rem; font-weight: 700; color: #fff; }
+    .leistungs-liste {
+      padding: 1.2rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .4rem .5rem;
+    }
+    .leistungs-liste .item { font-size: .76rem; color: #444; display: flex; align-items: flex-start; gap: .5rem; line-height: 1.45; }
+    .leistungs-liste .item::before { content: '✓'; color: #D97228; font-weight: 700; font-size: .7rem; flex-shrink: 0; margin-top: 1px; }
+
+    /* Preistabelle */
+    table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: .78rem; }
+    th { background: #f5f5f5; padding: .55rem .9rem; text-align: left; font-size: .65rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #555; border-bottom: 2px solid #eee; }
+    td { padding: .62rem .9rem; border-bottom: 1px solid #f0f0f0; color: #333; vertical-align: middle; line-height: 1.5; }
+    tr:last-child td { border-bottom: none; }
+    .amount { font-weight: 800; color: #1A1A2E; }
+
+    /* Rollout */
+    .rollout { margin-bottom: 1.5rem; }
+    .rollout-row { display: flex; gap: 1.2rem; align-items: flex-start; padding: .72rem 0; border-bottom: 1px solid #f5f5f5; }
+    .rollout-row:last-child { border-bottom: none; }
+    .r-woche { min-width: 62px; font-size: .65rem; font-weight: 600; color: #999; padding-top: 2px; }
+    .r-content strong { display: block; font-size: .78rem; font-weight: 700; color: #111; margin-bottom: 2px; }
+    .r-content span { font-size: .74rem; color: #666; }
+
+    /* Konditionen */
+    .kond-list { margin-bottom: 1.5rem; }
+    .kond-list li { font-size: .76rem; color: #555; line-height: 1.72; padding: .34rem 0; border-bottom: 1px solid #f5f5f5; list-style: none; display: flex; gap: .6rem; align-items: flex-start; }
+    .kond-list li:last-child { border-bottom: none; }
+    .kond-list li::before { content: '·'; color: #1A1A2E; font-weight: 900; font-size: 1rem; line-height: 1.3; flex-shrink: 0; }
+
+    .hinweis { background: #FFFBF5; border: 1px solid rgba(217,114,40,.3); border-left: 3px solid #D97228; padding: .8rem 1rem; font-size: .74rem; color: #555; line-height: 1.65; margin-bottom: 1.5rem; }
+    .hinweis strong { color: #D97228; }
+
+    .sign-section { border-top: 2px solid #f0f0f0; padding-top: 1.5rem; }
+    .sign-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 1.2rem; }
+    .sign-block p { font-size: .7rem; color: #888; margin-bottom: 2.8rem; }
+    .sign-line { border-top: 1px solid #ccc; padding-top: .4rem; font-size: .65rem; color: #aaa; }
+
+    .footer { margin-top: 2rem; padding: 1.2rem 2.8rem; background: #1A1A2E; display: flex; justify-content: space-between; align-items: center; }
+    .footer p { font-size: .65rem; color: rgba(255,255,255,.35); }
+
+    @media print { body { background: #fff; } .page { max-width: 100%; } }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-left">
+      <div class="name">Jonah Heinze</div>
+      <div class="sub">Websites &amp; KI · KFZ-Branche</div>
+    </div>
+    <div class="header-right">
+      <p>Westring 25g · 45711 Datteln</p>
+      <p>heinze.jonah@icloud.com</p>
+      <p>+49 163 169 7843</p>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <div class="top-row">
+      <div class="kunde-block">
+        <p><strong>KFZ Stoni</strong></p>
+        <p>Friedrich-Ebert-Straße 58</p>
+        <p>45711 Datteln</p>
+      </div>
+      <div class="doc-meta">
+        <div class="doc-type">Vertrag</div>
+        <div class="doc-nr">07.06.2026 · Nr. 2026-003</div>
+      </div>
+    </div>
+
+    <div class="sec-title">Leistungsumfang</div>
+    <div class="leistungs-box">
+      <div class="leistungs-header">
+        <div class="lname">KI-Telefonassistent — Einrichtung &amp; Betrieb</div>
+      </div>
+      <div class="leistungs-liste">
+        <div class="item">KI-Agent: Einrichtung &amp; Konfiguration</div>
+        <div class="item">Knowledge Base aus eurer Website</div>
+        <div class="item">Automatische Transkription jedes Anrufs</div>
+        <div class="item">E-Mail-Benachrichtigung nach jedem Gespräch</div>
+        <div class="item">24/7 Erreichbarkeit — auch nachts &amp; Wochenende</div>
+        <div class="item">Individuelle Dialoge für KFZ-Anfragen</div>
+        <div class="item">Terminanfragen direkt im Gespräch aufnehmen</div>
+        <div class="item">Monatlicher Qualitäts-Check der Transkripte</div>
+      </div>
+    </div>
+
+    <div class="sec-title">Vergütung</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Position</th>
+          <th>Beschreibung</th>
+          <th>Preis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Setup (einmalig)</td>
+          <td>Einrichtung, Konfiguration, Testphase &amp; Go-Live</td>
+          <td class="amount">1.490 €</td>
+        </tr>
+        <tr>
+          <td>Monatliche Gebühr</td>
+          <td>Betrieb, Monitoring, Updates &amp; Qualitäts-Check</td>
+          <td class="amount">299 € / Monat</td>
+        </tr>
+        <tr>
+          <td>Minutenpreis (Agent)</td>
+          <td>Pro Gesprächsminute, monatlich nach Verbrauch</td>
+          <td class="amount">0,30 € / Min.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sec-title">Ablauf</div>
+    <div class="rollout">
+      <div class="rollout-row">
+        <div class="r-woche">Woche 1</div>
+        <div class="r-content">
+          <strong>Kickoff</strong>
+          <span>Dialoge &amp; Szenarien abstimmen, Rufnummer einrichten, Zugänge klären.</span>
+        </div>
+      </div>
+      <div class="rollout-row">
+        <div class="r-woche">Woche 1–2</div>
+        <div class="r-content">
+          <strong>Build</strong>
+          <span>Agent konfigurieren, Knowledge Base befüllen, Testcalls durchführen.</span>
+        </div>
+      </div>
+      <div class="rollout-row">
+        <div class="r-woche">Woche 2</div>
+        <div class="r-content">
+          <strong>Abnahme &amp; Go-Live</strong>
+          <span>Gemeinsame Qualitätsprüfung — Rufnummer live, Setup-Gebühr erst danach fällig.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-title">Konditionen</div>
+    <ul class="kond-list">
+      <li>Setup-Gebühr wird erst nach Abnahme und Go-Live in Rechnung gestellt.</li>
+      <li>Monatliche Gebühr startet mit Go-Live, Abrechnung jeweils zum Monatsersten.</li>
+      <li>Minutenpreise werden monatlich nach tatsächlichem Verbrauch abgerechnet.</li>
+      <li>Mindestlaufzeit 12 Monate. Kündigung mit 30 Tagen Frist zum Laufzeitende, danach monatlich kündbar.</li>
+      <li>Der Auftraggeber ist verantwortlich für die datenschutzkonforme Einbindung (Hinweispflicht gegenüber Anrufern).</li>
+      <li>Gemäß § 19 UStG wird keine Umsatzsteuer ausgewiesen (Kleinunternehmerregelung).</li>
+    </ul>
+
+    <div class="hinweis">
+      <strong>Hinweis:</strong> Mit Unterzeichnung akzeptiert der Auftraggeber die beigefügten Allgemeinen Geschäftsbedingungen sowie die Datenschutzerklärung von Jonah Heinze.
+    </div>
+
+    <div class="sign-section">
+      <div class="sec-title">Auftragserteilung</div>
+      <div class="sign-grid">
+        <div class="sign-block">
+          <p>Ort, Datum</p>
+          <div class="sign-line">KFZ Stoni — Unterschrift &amp; ggf. Stempel</div>
+        </div>
+        <div class="sign-block">
+          <p>Ort, Datum</p>
+          <div class="sign-line">Jonah Heinze — Auftragnehmer</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>Jonah Heinze · Westring 25g · 45711 Datteln</p>
+    <p>Gem. § 19 UStG keine MwSt. · Stand: Juni 2026</p>
+  </div>
+
+</div>
+</body>
+</html>
