@@ -112,7 +112,24 @@
     .agb-nr { font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #D97228; margin-bottom: .35rem; }
     .agb-para p { font-size: .7rem; color: #555; line-height: 1.7; }
 
-    @media print { body { background: #fff; } .page { max-width: 100%; } }
+    /* Zahlungshinweis */
+    .zahlung-box { background: #f9f9fb; border: 1px solid #eee; border-radius: 6px; padding: .9rem 1.2rem; margin-bottom: 1.5rem; break-inside: avoid; }
+    .zahlung-box p { font-size: .76rem; color: #555; line-height: 1.75; }
+    .zahlung-box p + p { margin-top: .35rem; }
+    .zahlung-box strong { color: #1A1A2E; font-weight: 700; }
+
+    @media print {
+      @page { size: A4; margin: 14mm 15mm 14mm 15mm; }
+      body {
+        background: #fff;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .page { max-width: 100%; }
+      .leistungs-box, .rollout, .kond-list, .sign-section, .zahlung-box { break-inside: avoid; }
+      .agb-section { break-before: page; }
+      .agb-para { break-inside: avoid; }
+    }
   </style>
 </head>
 <body>
@@ -240,6 +257,12 @@
       <li>Mindestlaufzeit 12 Monate. Kündigung mit 30 Tagen Frist zum Laufzeitende, danach monatlich kündbar.</li>
       <li>Gemäß § 19 UStG wird keine Umsatzsteuer ausgewiesen (Kleinunternehmerregelung).</li>
     </ul>
+
+    <div class="zahlung-box">
+      <div class="sec-title">Zahlungshinweis</div>
+      <p>Zahlung per <strong>Banküberweisung</strong>. Die vollständige Kontoverbindung wird mit der Rechnung mitgeteilt.</p>
+      <p>Verwendungszweck: <strong>Vertrag Nr. 2026-002 · KFZ Stoni</strong></p>
+    </div>
 
     <div class="sign-section">
       <div class="sec-title">Auftragserteilung</div>
